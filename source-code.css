@@ -1,0 +1,162 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: white;
+}
+
+/* Button Hamburger */
+.btn-nav {
+  position: fixed;
+  right: 3rem;
+  top: 3rem;
+
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 1rem;
+  z-index: 10;
+
+  --btn-color: black;
+}
+
+.ham4 .top {
+  stroke-dasharray: 40 121;
+}
+.ham4 .bottom {
+  stroke-dasharray: 40 121;
+}
+.ham4.active .top {
+  stroke-dashoffset: -6.8rem;
+}
+.ham4.active .bottom {
+  stroke-dashoffset: -6.8rem;
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: var(--btn-color);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.649);
+  backdrop-filter: blur(15px);
+  transform: translateX(-100%);
+  z-index: 9;
+
+  transition: all 0.3s;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  transform: translateX(30%);
+
+  transition: all 0.3s 0.3s;
+
+  opacity: 0;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1.5rem;
+  font-size: 4rem;
+  font-family: sans-serif;
+  position: relative;
+
+  transition: all 0.3s;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  width: 0%;
+  height: 5px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 48em) {
+  .nav-link:hover::before {
+    width: 100%;
+  }
+
+  .source-code::before {
+    bottom: 2.5rem;
+  }
+}
+
+.nav-icon {
+  width: 7rem;
+  height: 7rem;
+}
+
+.source-code {
+  margin-bottom: 8rem;
+}
+
+/* When Button Clicked */
+.nav-fade-in {
+  transform: translateX(0);
+}
+
+.nav-list-fade-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@media only screen and (max-width: 25em) {
+  html {
+    font-size: 40%;
+  }
+}
